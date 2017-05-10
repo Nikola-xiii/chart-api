@@ -4,7 +4,8 @@
   "description": "Chart API for png chart render",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "compile": "babel --plugins transform-es2015-classes widgets/funnel-chart/widget.js --out-file script-compiled.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,11 @@
     "phantomjs": "^2.1.7"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
     "babel-polyfill": "^6.23.0",
     "base-64": "^0.1.0"
   }
