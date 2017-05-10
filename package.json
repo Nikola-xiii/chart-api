@@ -1,0 +1,30 @@
+{
+  "name": "chart-api",
+  "version": "1.0.0",
+  "description": "Chart API for png chart render",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikola-xiii/chart-api.git"
+  },
+  "keywords": [
+    "node.js",
+    "d3.js",
+    "express.js",
+    "phantom.js"
+  ],
+  "author": "nikola-xiii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nikola-xiii/chart-api/issues"
+  },
+  "homepage": "https://github.com/Nikola-xiii/chart-api#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "phantomjs": "^2.1.7"
+  }
+}

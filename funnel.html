@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<div id="funnel-chart-widget">
+</div>
+</body>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="./funnel-chart/FunnelChartWidget.js"></script>
+<script>
+  var funnelChartWidget = LW.FunnelChartWidget.make({
+    "container": '#funnel-chart-widget',
+    "title": "Video Viewable Rates Funnel",
+    "headers": ["Metric", "Events", "Rate, %", "AI Uplift, %"],
+    "colors": ["#A94CBA", "#9A30AD", "#8D2DA7", "#7A289F", "#692397"],
+    "series": [
+      ["Video Starts", 3521231, 100, 10],
+      ["25% Video Viewed", 1533232, 44, 9],
+      ["50% Video Viewed", 1232123, 35, 8],
+      ["75% Video Viewed", 934313, 27, 12],
+      ["Video Completes", 834123, 24, 10]
+    ],
+    "config": {
+      "width": "100%"
+    }
+  });
+
+  funnelChartWidget.render();
+</script>
