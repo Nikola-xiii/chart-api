@@ -2,11 +2,11 @@
   "title": "Video Viewable Rates Funnel",
   "type": "funnel",
   "data": [
-    ["Video Starts", 3521231, 100, 10],
-    ["25% Video Viewed", 1533232, 44, 9],
-    ["50% Video Viewed", 1232123, 35, 8],
-    ["75% Video Viewed", 934313, 27, 12],
-    ["Video Completes", 834123, 24, 10]
+    ["Video Starts","3521231", "100", "10"],
+    ["25% Video Viewed", "1533232", "44", "9"],
+    ["50% Video Viewed", "1232123", "35", "8"],
+    ["75% Video Viewed", "934313", "27", "12"],
+    ["Video Completes", "834123", "24", "10"]
   ],
   "outFile":"chart.png"
 }

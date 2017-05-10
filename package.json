@@ -4,7 +4,6 @@
   "description": "Chart API for png chart render",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
@@ -24,7 +23,13 @@
   },
   "homepage": "https://github.com/Nikola-xiii/chart-api#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
+    "d3": "^4.8.0",
     "express": "^4.15.2",
     "phantomjs": "^2.1.7"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.23.0",
+    "base-64": "^0.1.0"
   }
 }

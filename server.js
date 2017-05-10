@@ -1,14 +1,35 @@
-var express = require('express');
-var path = require('path');
+var express    = require('express');
+var app        = express();
+var bodyParser = require('body-parser');
 
-var app = express();
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-app.use(express.bodyParser());
+var port = process.env.PORT || 8080;
 
-app.get('/api', function (req, res) {
-  res.send('API is running');
+// ROUTES FOR OUR API
+// =============================================================================
+var router = express.Router();
+
+router.get('/', function(req, res) {
+  res.json({ message: 'hooray! welcome to our api!' });
 });
 
-app.listen(1337, function(){
-  console.log('Express server listening on port 1337');
+router.route('/image').post(function (req, res) {
+  var chartType = req.body.type;
+
+  res.json({
+    chart: chartType,
+    data: req.body.data
+  });
 });
+
+app.use('/api', router);
+app.use('/image', router);
+
+// START THE SERVER
+// =============================================================================
+app.listen(port);
+console.log('Magic happens on port ' + port);

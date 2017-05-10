@@ -1,5 +1,14 @@
 (function(window) {
   'use strict';
+
+  var FunnelChartWidget = require('./funnel-chart/FunnelChartWidget');
+
+  var ChartFactory = function() { this.init(); };
+
+  Chart.prototype.init = function (params) {
+    FunnelChartWidget
+  };
+
   var FunnelChartWidget = require('./funnel-chart/FunnelChartWidget').make({
     "container": '#funnel-chart-widget',
     "title": "Video Viewable Rates Funnel",
@@ -16,5 +25,7 @@
       "width": "100%"
     }
   });
+
+  window.ChartFactory = ChartFactory;
 
 }(window));
