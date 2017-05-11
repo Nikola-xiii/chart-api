@@ -1,7 +1,7 @@
 var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
-var Renderer = require('./renderer.phantomjs');
+var Renderer = require('./renderer.phantom');
 
 
 // configure app to use bodyParser()
@@ -23,15 +23,8 @@ router.get('/', function(req, res) {
 router.route('/image').post(function (req, res) {
   var chartType = req.body.type;
   var config = req.body;
-
-  var renderer = new Renderer(config);
-
-  res.statusCode = 200;
-  res.setEncoding('binary');
-  res.setHeader('Content-Type', 'image/png');
-  res.setHeader('Content-Length', renderer.image.length());
-  res.write(renderer.image);
-  res.close();
+  var renderer = new Renderer(req.body.type, req.body);
+  res.json(req.body);
 });
 
 app.use('/api', router);

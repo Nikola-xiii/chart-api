@@ -1,29 +1,18 @@
 (function(window) {
   'use strict';
 
-  //var FunnelChartWidget = require('./funnel-chart/FunnelChartWidget');
+  var ChartFactory = function(type, options) { this.init(type, options); };
 
-  var ChartFactory = function() { this.init(); };
-
-  ChartFactory.prototype.init = function () {
-    var Chart = LW.FunnelChartWidget.make({
-      "container": '#funnel-chart-widget',
-      "title": "Video Viewable Rates Funnel",
-      "headers": ["Metric", "Events", "Rate, %", "AI Uplift, %"],
-      "colors": ["#A94CBA", "#9A30AD", "#8D2DA7", "#7A289F", "#692397"],
-      "series": [
-        ["Video Starts", 3521231, 100, 10],
-        ["25% Video Viewed", 1533232, 44, 9],
-        ["50% Video Viewed", 1232123, 35, 8],
-        ["75% Video Viewed", 934313, 27, 12],
-        ["Video Completes", 834123, 24, 10]
-      ],
-      "config": {
-        "width": "100%"
-      }
-    });
-
-    Chart.render();
+  ChartFactory.prototype.init = function (type, options) {
+    switch (type) {
+      case 'funnel':
+        var Chart = new window.FunnelChart(options);
+        Chart.render();
+        console.log("ChartFactory");
+        break;
+      default:
+        "Undefined type";
+    }
   };
 
   window.ChartFactory = ChartFactory;
