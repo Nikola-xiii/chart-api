@@ -11,54 +11,49 @@ Renderer.prototype.init = function(type, options) {
   this.type = type;
   this.options = options;
 
-  console.log('init', options.data);
-
-  this.onPageReady();
+  this.data = this.onPageReady();
 };
 
 Renderer.prototype.loadPage = function() {
   this.page.open(pageUrl, this.onPageReady.bind(this));
 };
 
-Renderer.prototype.onRenderImage = function() {
-  var data = base64.decode(this.page.renderBase64('png')),
+Renderer.prototype.onRenderImage = function(page) {
+  var data = page.renderBase64('png'),
     decoded = '',
     j = data.length;
+
 
   for (var i = 0; i < j; i++) {
     decoded = decoded + String.fromCharCode(data[i]);
   }
 
-  this.page.close();
+  page.close();
 
   return decoded;
 };
 
 Renderer.prototype.onPageReady = function() {
-  console.log("onPageReady", this);
   var _self = this;
   phantom.create().then(function(ph) {
     ph.createPage().then(function(page) {
       page.open(pageUrl).then(function(status) {
+        //page.injectJs('./charts/charts.factory.js');
         page.evaluate(function(_self) {
           var Chart = new window.FunnelChart(_self.options);
           Chart.render();
-          console.log(_self.options);
-
           return document.getElementById('funnel-chart-widget').innerHTML;
         }, _self).then(function(html){
-          console.log(html);
         });
+
+        page.renderBase64('PNG').then(function(content) {
+           Renderer.prototype.data = content;
+        });
+
       });
     });
   });
-
-
-  // var image = fs.createWriteStream('sorribas.png');
-  // render(pageUrl).pipe(image);
-  //
-  // this.image = fs.createWriteStream('sorribas.png', {encoding: 'binary'});
-
+  console.log('Renderer this', this.data);
 };
 
 module.exports = Renderer;

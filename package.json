@@ -31,7 +31,8 @@
     "node-phantom": "^0.2.5",
     "phantom": "^4.0.3",
     "phantomjs": "^2.1.7",
-    "phantomjs-prebuilt": "^2.1.14"
+    "phantomjs-prebuilt": "^2.1.14",
+    "pngjs": "^3.2.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

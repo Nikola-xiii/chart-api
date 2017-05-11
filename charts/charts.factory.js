@@ -4,10 +4,10 @@
   var ChartFactory = function(type, options) { this.init(type, options); };
 
   ChartFactory.prototype.init = function (type, options) {
+    console.log(type);
     switch (type) {
       case 'funnel':
         var Chart = new window.FunnelChart(options);
-        Chart.render();
         console.log("ChartFactory");
         break;
       default:

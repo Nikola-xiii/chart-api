@@ -2,7 +2,8 @@ var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
 var Renderer = require('./renderer.phantom');
-
+var resolve = require('path').resolve;
+var fs = require('fs');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -24,7 +25,15 @@ router.route('/image').post(function (req, res) {
   var chartType = req.body.type;
   var config = req.body;
   var renderer = new Renderer(req.body.type, req.body);
-  res.json(req.body);
+
+  console.log('server', renderer.data);
+
+  var img = new Buffer(renderer.data, 'base64');
+  res.writeHead(200, {
+    'Content-Type': 'image/png',
+    'Content-Length': img.length
+  });
+  res.end(img);
 });
 
 app.use('/api', router);
