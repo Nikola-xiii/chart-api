@@ -12,7 +12,7 @@
     this.params = params;
     this.title = params.title;
     this.config = params.config || {};
-    this.headers = ["Metric", "Events", "Rate, %", "AI Uplift, %"];
+    this.headers = params.headers;
     this.colors = ["#c6d3de", "#a1b7c7", "#7894ab", "#59748c", "#354d62"];
     this.aiColor = params.aiColor || '#62D2A2';
     this.series = params.series || [];
@@ -44,7 +44,7 @@
         wrapperEl.setAttribute('id', this.config.id);
       }
 
-      this.width = wrapperEl[0].offsetWidth / 2 - 10;
+      this.width = wrapperEl[0].offsetWidth - 10;
 
       return wrapperEl;
     },

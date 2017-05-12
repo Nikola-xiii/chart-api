@@ -1,5 +1,4 @@
 {
-  "title": "Video Viewable Rates Funnel",
   "type": "funnel",
   "series": [
     ["Video Starts", 1231, 100, 10],
