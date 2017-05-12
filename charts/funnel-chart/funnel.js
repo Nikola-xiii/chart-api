@@ -12,8 +12,8 @@
     this.params = params;
     this.title = params.title;
     this.config = params.config || {};
-    this.headers = params.headers;
-    this.colors = params.colors;
+    this.headers = ["Metric", "Events", "Rate, %", "AI Uplift, %"];
+    this.colors = ["#c6d3de", "#a1b7c7", "#7894ab", "#59748c", "#354d62"];
     this.aiColor = params.aiColor || '#62D2A2';
     this.series = params.series || [];
 

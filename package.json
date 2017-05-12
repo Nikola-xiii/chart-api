@@ -28,21 +28,8 @@
     "body-parser": "^1.17.1",
     "d3": "^4.8.0",
     "express": "^4.15.2",
-    "node-phantom": "^0.2.5",
     "phantom": "^4.0.3",
     "phantomjs": "^2.1.7",
-    "phantomjs-prebuilt": "^2.1.14",
-    "pngjs": "^3.2.0"
-  },
-  "devDependencies": {
-    "babel": "^6.23.0",
-    "babel-cli": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-es2015-classes": "^6.24.1",
-    "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
-    "base-64": "^0.1.0",
-    "imagely": "^0.2.2",
-    "phantom-render-stream": "^2.2.0"
+    "phantomjs-prebuilt": "^2.1.14"
   }
 }

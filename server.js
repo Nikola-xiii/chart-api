@@ -27,14 +27,6 @@ router.route('/image').post(function (req, res) {
 
   var renderer = new Renderer(req.body.type, req.body);
   renderer.onPageReady(res);
-
-  // console.log('server', renderer.png);
-  //
-  // res.writeHead(200, {
-  //   'Content-Type': 'image/png',
-  //   'Content-Length': img.length
-  // });
-  // res.end(img);
 });
 
 app.use('/api', router);

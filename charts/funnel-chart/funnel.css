@@ -1,0 +1,9 @@
+.funnel-bar-title {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+#funnel-chart-widget {
+  margin: 0 auto;
+}
