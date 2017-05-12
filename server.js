@@ -10,7 +10,7 @@ var fs = require('fs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT0 || 8080;
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -25,7 +25,7 @@ router.route('/image').post(function (req, res) {
   var chartType = req.body.type;
   var config = req.body;
 
-  var renderer = new Renderer(req.body.type, req.body);
+  var renderer = new Renderer(chartType, config);
   renderer.onPageReady(res);
 });
 

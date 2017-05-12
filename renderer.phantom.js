@@ -22,7 +22,7 @@ Renderer.prototype.onPageReady = function(res) {
       _page = page;
     return _page.open(pageUrl);
   }).then(function(status) {
-      console.log(status);
+      //console.log(status);
       _page.property('viewportSize', {width: 600, height: 200});
       _page.evaluate(function (_self) {
         var Chart = new window.FunnelChart(_self.options);
