@@ -109,6 +109,8 @@
         .attr("height", 150);
 
       var _self = this;
+      _self.centerSVG = this.width / 2;
+      _self.stringNumber =
 
       this.series.forEach(function(dataItem, i) {
         c.append('path')
@@ -118,9 +120,30 @@
         c.append('path')
           .attr("d", line(_self._calculateUpliftPoints(i)) + 'Z')
           .style("fill", _self.aiColor);
+
+        if(i === 0) {
+          c.append("text").attr("x", _self.centerSVG).attr("y", 17)
+            .attr("text-anchor", "middle")
+            .text(_self._nFormatter(dataItem[1]) + " ["+ dataItem[2]+"%]")
+            .style("fill", "#FFF");
+        }
       });
 
       return container;
+    },
+
+    _nFormatter: function(num) {
+      if (num >= 1000000000) {
+        return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'B';
+      }
+      if (num >= 1000000) {
+        return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      }
+      if (num >= 1000) {
+        return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+      }
+
+      return num;
     },
 
     // _getTable: function() {
