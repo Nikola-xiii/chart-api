@@ -125,6 +125,7 @@
           c.append("text").attr("x", _self.centerSVG).attr("y", 17)
             .attr("text-anchor", "middle")
             .text(_self._nFormatter(dataItem[1]) + " ["+ dataItem[2]+"%]")
+            .style("font-size", "13px")
             .style("fill", "#FFF");
         }
       });
